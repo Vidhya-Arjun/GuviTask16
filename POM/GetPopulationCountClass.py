@@ -14,12 +14,11 @@ class GetPopulationCount(BaseClass):
         self.driver.get(url)
     def get_population_count(self):
         wait =WebDriverWait(self.driver,timeout=20,poll_frequency=1,ignored_exceptions=[StaleElementReferenceException,NoSuchElementException])
-        # while True:
         try:
-            count_population = wait.until(EC.presence_of_element_located(self.locator))
-            print(count_population.text)
-            self.wait
+            while True:
+
+                count_population = wait.until(EC.presence_of_element_located(self.locator))
+                print(count_population.text)
         except KeyboardInterrupt:
             print("stopped by user")
-        finally:
-            print("code execution completed")
+
